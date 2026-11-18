@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-only
 //! The user's dictation context, as the prompt Whisper is conditioned on.
 //!
-//! The manifest declares `[capabilities] context = true`, so the daemon hands
-//! this backend the dictation context in force on every `/v1` request, as two
-//! JSON headers: `x-voice-prompt`, a string saying what the user is dictating,
+//! Each model in the manifest declares `accepts_context = true`, so the daemon
+//! hands it the dictation context in force on every `/v1` request, as two JSON
+//! headers: `x-voice-prompt`, a string saying what the user is dictating,
 //! and `x-voice-vocabulary`, an array of terms spelled the way the user wants
 //! them. Each is left out when its half is empty. A Super STT daemon sends the
 //! same headers as `x-stt-prompt` and `x-stt-vocabulary`; a Super Voice daemon

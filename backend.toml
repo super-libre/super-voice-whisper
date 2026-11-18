@@ -22,12 +22,6 @@
 [network]
   allowed_hosts = []
 
-[capabilities]
-  # Opts into being handed the user's dictation context as `x-voice-prompt` and
-  # `x-voice-vocabulary`. Whisper is prompted with both as its previous text:
-  # the terms joined with commas, then the prompt.
-  context = true
-
 # The CUDA builds run on the CPU too (candle picks the device at load), so they
 # list both: a model on one moves to the CPU without installing the CPU build.
 # The CPU build is for machines without CUDA, which the daemon gives it over a
@@ -128,6 +122,10 @@
 
 [[models]]
   name                   = "whisper-tiny"
+  # Every model here takes the user's dictation context as `x-voice-prompt` and
+  # `x-voice-vocabulary`. Whisper is prompted with both as its previous text:
+  # the terms joined with commas, then the prompt.
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = true
@@ -245,6 +243,7 @@
 
 [[models]]
   name                   = "whisper-tiny.en"
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = false
@@ -261,6 +260,7 @@
 
 [[models]]
   name                   = "whisper-base"
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = true
@@ -378,6 +378,7 @@
 
 [[models]]
   name                   = "whisper-base.en"
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = false
@@ -394,6 +395,7 @@
 
 [[models]]
   name                   = "whisper-small"
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = true
@@ -511,6 +513,7 @@
 
 [[models]]
   name                   = "whisper-small.en"
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = false
@@ -527,6 +530,7 @@
 
 [[models]]
   name                   = "whisper-medium"
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = true
@@ -644,6 +648,7 @@
 
 [[models]]
   name                   = "whisper-medium.en"
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = false
@@ -660,6 +665,7 @@
 
 [[models]]
   name                   = "whisper-large"
+  accepts_context        = true
   provider               = "local_whisper"
   force_preview_support  = true
   multilingual           = true
